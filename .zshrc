@@ -1,22 +1,26 @@
 # Created by newuser for 5.0.7
 
+greeting="Hello Johannes and Livia"
+echo $greeting
 
-# Alias definitions
-# *****************
+a=2
+b=3
+c=$a+$b
+echo $c
 
-	alias rm="rm -i"
-	alias mv="mv -i"
-	alias cp="cp -i"
-	alias pylab="ipython --pylab"
-echo "Hello Johannes"
 
 # Functions
 # *********
 
-s () {
-cd ; cd Scientific-Computing/week$1
-}
 
+function s () {
+    cd ;
+    if [ -d ./scientific_computing/week$1 ] ; then
+    else
+	mkdir ./scientific_computing/week$1 
+    fi ;
+    cd scientific_computing/week$1
+}
 
 function mandelbrot {
    local lines columns colour a b p q i pnew
@@ -32,3 +36,12 @@ function mandelbrot {
         echo
     done
 }
+
+# Alias definitions
+# *****************
+
+    alias rm="rm -i"
+    alias mv="mv -i"
+    alias cp="cp -i"
+    alias pylab="ipython --pylab"
+    alias uni_login="ssh -2X jlade@linux.physik.uzh.ch"
